@@ -11,11 +11,13 @@ public class FreakyFrogController : MonoBehaviour
     private bool isJumping = false;
     private bool isAttacking = false;
     public GameObject tongue;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -40,6 +42,15 @@ public class FreakyFrogController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && !isAttacking)
         {
             StartCoroutine(Attack());
+        }
+        
+        if (move > 0)
+        {
+            spriteRenderer.flipX = false; // Face Right
+        }
+        else if (move < 0)
+        {
+            spriteRenderer.flipX = true; // Face Left
         }
     }
 
