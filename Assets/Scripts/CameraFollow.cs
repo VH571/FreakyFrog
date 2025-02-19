@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     [Header("Target")]
     [SerializeField] private Transform target;
-    [SerializeField] private float smoothSpeed = 5f;  // How smoothly the camera follows
+    [SerializeField] private float smoothSpeed = 5f;
 
     [Header("Position Bounds")]
     [SerializeField] private float minX = -10f;
@@ -20,16 +20,13 @@ public class CameraFollow : MonoBehaviour
         if (target == null)
             return;
 
-        // Calculate desired position
         Vector3 desiredPosition = target.position + offset;
 
-        // Clamp the desired position within boundaries
         float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
         float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
 
         Vector3 clampedPosition = new Vector3(clampedX, clampedY, desiredPosition.z);
 
-        // Smoothly move camera to the clamped position
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, clampedPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
     }
