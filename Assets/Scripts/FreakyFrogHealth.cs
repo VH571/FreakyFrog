@@ -4,7 +4,7 @@ public class FreakyFrogHealth : MonoBehaviour
 {
     public int health = 5;
     public GameObject deathEffect;
-
+    public AudioClip deathSound;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -16,7 +16,7 @@ public class FreakyFrogHealth : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         Debug.Log("Freaky Frog has been defeated!");
 
@@ -24,7 +24,14 @@ public class FreakyFrogHealth : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
-
-        Destroy(gameObject); 
+        PlayDeathSound();
+        Destroy(gameObject);
+    }
+    void PlayDeathSound()
+    {
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
     }
 }
