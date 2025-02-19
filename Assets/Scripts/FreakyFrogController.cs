@@ -107,7 +107,7 @@ public class FreakyFrogController : MonoBehaviour
     {
         if (attackSound != null)
         {
-            AudioSource.PlayClipAtPoint(jumpSound, transform.position);
+            AudioSource.PlayClipAtPoint(attackSound, transform.position);
         }
     }
 }

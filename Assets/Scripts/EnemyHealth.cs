@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int health = 2; 
+    public int health = 2;
+    public GameObject coinPrefab;
 
     public void TakeDamage()
     {
@@ -18,6 +19,12 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Defeated!");
-        Destroy(gameObject); 
+
+        if (coinPrefab != null)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
     }
 }

@@ -38,6 +38,11 @@ public class FreakyFrogHealth : MonoBehaviour
 
     void PlayDeathSound()
     {
+        AudioSource tempAudio = gameObject.AddComponent<AudioSource>();
+        tempAudio.clip = deathSound;
+        tempAudio.volume = 2.0f;
+        tempAudio.Play();
+        Destroy(tempAudio, deathSound.length);
         if (deathSound != null)
         {
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
