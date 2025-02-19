@@ -149,7 +149,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      png-transparent-frog-animated-film-desktop-3d-computer-graphics-cartoon-hopfrog-3d-computer-graphics-animals-vertebrate 1_0: -6635349964923916633
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

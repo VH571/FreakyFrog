@@ -116,10 +116,10 @@ TextureImporter:
       name: pngwing.com(1)_0
       rect:
         serializedVersion: 2
-        x: 171
-        y: 29
-        width: 577
-        height: 540
+        x: 172
+        y: 30
+        width: 575
+        height: 538
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5a9ff4e9e4f83a947b46e7c87271e858
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngwing.com(1)_0: -9100910893300145835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -105,6 +105,11 @@ public class FreakyFrogController : MonoBehaviour
     }
     void PlayAttackSound()
     {
+        AudioSource tempAudio = gameObject.AddComponent<AudioSource>();
+        tempAudio.clip = attackSound;
+        tempAudio.volume = 2.0f;
+        tempAudio.Play();
+        Destroy(tempAudio, attackSound.length);
         if (attackSound != null)
         {
             AudioSource.PlayClipAtPoint(attackSound, transform.position);
