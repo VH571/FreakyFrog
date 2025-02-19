@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class FreakyFrogHealth : MonoBehaviour
 {
     public int health = 5;
     public GameObject deathEffect;
     public AudioClip deathSound;
+    public float restartDelay = 1f;
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -24,14 +28,24 @@ public class FreakyFrogHealth : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
+
         PlayDeathSound();
-        Destroy(gameObject);
+
+        gameObject.SetActive(false);
+
+        Invoke("Restart", restartDelay);
     }
+
     void PlayDeathSound()
     {
         if (deathSound != null)
         {
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Dead");
     }
 }

@@ -209,6 +209,7 @@ MonoBehaviour:
   slimeBallPrefab: {fileID: 7032074776207012770, guid: 5f6af8e49c4e1f649b607eb8a1d64b03, type: 3}
   firePoint: {fileID: 5282872925046666668}
   fireRate: 2
+  slimeSound: {fileID: 8300000, guid: 587bc27ece7dc6743a452bf42de9dda6, type: 3}
 --- !u!1 &7206789071272274379
 GameObject:
   m_ObjectHideFlags: 0

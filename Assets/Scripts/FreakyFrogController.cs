@@ -13,6 +13,7 @@ public class FreakyFrogController : MonoBehaviour
     public GameObject tongue;
     private SpriteRenderer spriteRenderer;
     public AudioClip jumpSound;
+    public AudioClip attackSound;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -66,6 +67,7 @@ public class FreakyFrogController : MonoBehaviour
 
     IEnumerator Attack()
     {
+        PlayAttackSound();
         isAttacking = true;
         animator.SetBool("isAttacking", true);
         animator.Play("FreakyFrog_Attack");
@@ -91,7 +93,19 @@ public class FreakyFrogController : MonoBehaviour
     }
     void PlayJumpSound()
     {
+        AudioSource tempAudio = gameObject.AddComponent<AudioSource>();
+        tempAudio.clip = jumpSound;
+        tempAudio.volume = 2.0f;
+        tempAudio.Play();
+        Destroy(tempAudio, jumpSound.length);
         if (jumpSound != null)
+        {
+            AudioSource.PlayClipAtPoint(jumpSound, transform.position);
+        }
+    }
+    void PlayAttackSound()
+    {
+        if (attackSound != null)
         {
             AudioSource.PlayClipAtPoint(jumpSound, transform.position);
         }

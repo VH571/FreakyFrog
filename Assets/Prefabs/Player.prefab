@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5567191136409553861}
   - component: {fileID: 5392877318769834435}
   - component: {fileID: 2163205423379002617}
+  - component: {fileID: 732665035114233640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 6027648298227603956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.47, y: -1.72, z: -0.00020967}
-  m_LocalScale: {x: 6.558102, y: 6.157782, z: 0.99116}
+  m_LocalPosition: {x: -5.31, y: -4.09, z: -0.0002}
+  m_LocalScale: {x: 5, y: 5, z: 1.5096735}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6836360555641001322}
@@ -191,8 +192,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 7
+  jumpForce: 7.5
   tongue: {fileID: 7267044701932589214}
+  jumpSound: {fileID: 8300000, guid: 5412d85d0e22dda47863089124382a41, type: 3}
+  attackSound: {fileID: 8300000, guid: 74acbb688ac946d4a9a920ab9baf8624, type: 3}
+--- !u!114 &732665035114233640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027648298227603956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7d7ebed1678674a8832f9232f067b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  deathEffect: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: c9bfdf9c126f6714da6d58eb611a087e, type: 3}
+  restartDelay: 1
 --- !u!1 &7267044701932589214
 GameObject:
   m_ObjectHideFlags: 0
