@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Columned Wooden Spikes_0: 4449331877881282906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
