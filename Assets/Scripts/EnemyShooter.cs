@@ -8,8 +8,12 @@ public class EnemyShooter : MonoBehaviour
     private float nextFireTime;
     private Transform target;
 
+    private Animator animator; 
+
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -28,6 +32,10 @@ public class EnemyShooter : MonoBehaviour
         if (target == null) return;
 
         Debug.Log("Enemy Shooting!");
+        if (animator != null)
+        {
+        animator.SetTrigger("Attack");
+        }
 
         GameObject slimeBall = Instantiate(slimeBallPrefab, firePoint.position, Quaternion.identity);
 
