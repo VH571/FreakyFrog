@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wooden Spike_0: -9079710295706352830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

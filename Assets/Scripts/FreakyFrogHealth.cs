@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class FreakyFrogHealth : MonoBehaviour
 {
-    public int health = 3;
+    public int health = 5;
+    public GameObject deathEffect;
 
     public void TakeDamage(int damage)
     {
@@ -18,6 +19,12 @@ public class FreakyFrogHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Freaky Frog has been defeated!");
-        
+
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject); 
     }
 }
