@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour
 {
-    public GameObject slimeBallPrefab; // Assign in Inspector
-    public Transform firePoint; // Position where the slime ball appears
-    public float fireRate = 2f; // Time between shots
+    public GameObject slimeBallPrefab; 
+    public Transform firePoint;
+    public float fireRate = 2f; 
     private float nextFireTime;
     private Transform target;
 
     void Start()
     {
-        // Find Freaky Frog (Make sure he is tagged as "Player")
+        
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -29,13 +29,13 @@ public class EnemyShooter : MonoBehaviour
 
         Debug.Log("Enemy Shooting!");
 
-        // Spawn slime ball
         GameObject slimeBall = Instantiate(slimeBallPrefab, firePoint.position, Quaternion.identity);
 
-        // Determine direction towards Freaky Frog
+        slimeBall.transform.localScale = new Vector3(0.5f, 0.5f, 1f); // Adjust this based on your desired size
+
         Vector2 shootDirection = (target.position - firePoint.position).normalized;
 
-        // Send direction to the slime ball
         slimeBall.GetComponent<SlimeProjectile>().SetDirection(shootDirection);
     }
+
 }

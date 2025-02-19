@@ -8,37 +8,41 @@ public class SlimeProjectile : MonoBehaviour
 
     void Start()
     {
-        // Destroy slime ball after 5 seconds to prevent memory leaks
         Destroy(gameObject, 5f);
     }
 
     void Update()
     {
-        // Move the slime ball
         transform.position += (Vector3)moveDirection * speed * Time.deltaTime;
     }
 
-    // ✅ Function to Set Direction When Instantiated
     public void SetDirection(Vector2 direction)
     {
-        moveDirection = direction.normalized; // Ensure it moves correctly
+        moveDirection = direction.normalized;
+
+        transform.localScale = new Vector3(0.5f, 0.5f, 1f);
+
         if (direction.x < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Flip sprite if moving left
+            GetComponent<SpriteRenderer>().flipX = true; 
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false; 
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) // Make sure Freaky Frog is tagged as "Player"
+        if (collision.CompareTag("Player")) 
         {
             Debug.Log("Freaky Frog hit!");
             collision.GetComponent<FreakyFrogHealth>().TakeDamage(damage);
-            Destroy(gameObject); // Destroy slime ball on hit
+            Destroy(gameObject);
         }
         else if (collision.CompareTag("Ground"))
         {
-            Destroy(gameObject); // Destroy if it hits the ground
+            Destroy(gameObject); 
         }
         else if (collision.CompareTag("Enemy")) 
         {
