@@ -12,7 +12,7 @@ public class FreakyFrogController : MonoBehaviour
     private bool isAttacking = false;
     public GameObject tongue;
     private SpriteRenderer spriteRenderer;
-
+    public AudioClip jumpSound;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -25,7 +25,7 @@ public class FreakyFrogController : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
 
-        
+
         if (AnimatorHasParameter("isRunning"))
         {
             animator.SetBool("isRunning", move != 0);
@@ -33,17 +33,18 @@ public class FreakyFrogController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
+            PlayJumpSound();
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isJumping = true;
             animator.SetBool("isJumping", true);
         }
 
-        
+
         if (Input.GetKeyDown(KeyCode.F) && !isAttacking)
         {
             StartCoroutine(Attack());
         }
-        
+
         if (move > 0)
         {
             spriteRenderer.flipX = false; // Face Right
@@ -87,5 +88,12 @@ public class FreakyFrogController : MonoBehaviour
                 return true;
         }
         return false;
+    }
+    void PlayJumpSound()
+    {
+        if (jumpSound != null)
+        {
+            AudioSource.PlayClipAtPoint(jumpSound, transform.position);
+        }
     }
 }
