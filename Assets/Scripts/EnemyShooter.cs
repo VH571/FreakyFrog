@@ -7,9 +7,13 @@ public class EnemyShooter : MonoBehaviour
     public float fireRate = 2f;
     private float nextFireTime;
     private Transform target;
+
+    private Animator animator;
+
     public AudioClip slimeSound;
     void Start()
     {
+        animator = GetComponent<Animator>();
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -28,6 +32,10 @@ public class EnemyShooter : MonoBehaviour
         if (target == null) return;
         PlaySound();
         Debug.Log("Enemy Shooting!");
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
 
         GameObject slimeBall = Instantiate(slimeBallPrefab, firePoint.position, Quaternion.identity);
 

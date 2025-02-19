@@ -12,14 +12,18 @@ public class Coin : MonoBehaviour
         rb.gravityScale = 1f; 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))  
+        if (other.CompareTag("Player"))  
         {
             PlayCoinSound();
             Destroy(gameObject); 
         }
-        else if (collision.gameObject.CompareTag("Ground"))
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
         {
             if (!hasTouchedGround)  
             {

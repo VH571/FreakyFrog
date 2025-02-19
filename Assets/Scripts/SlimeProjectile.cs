@@ -37,17 +37,25 @@ public class SlimeProjectile : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             Debug.Log("Freaky Frog hit!");
-            collision.GetComponent<FreakyFrogHealth>().TakeDamage(damage);
-            Destroy(gameObject);
+
+            
+            FreakyFrogHealth frogHealth = collision.GetComponent<FreakyFrogHealth>();
+            if (frogHealth != null)
+            {
+                frogHealth.TakeDamage(damage); 
+            }
+            else
+            {
+                Debug.LogError("FreakyFrogHealth script is missing on the player!");
+            }
+
+            Destroy(gameObject); 
         }
         else if (collision.CompareTag("Ground"))
         {
             Destroy(gameObject); 
         }
-        else if (collision.CompareTag("Enemy")) 
-        {
-            Debug.Log("Ignored Enemy Hit");
-        }
     }
+
 
 }
